@@ -30,9 +30,10 @@ class BaseHandler(webapp2.RequestHandler):
 class MainHandler(BaseHandler):
     def get(self):
 
-        date_time_today = datetime.datetime.now()
+        date = datetime.datetime.now().strftime("%d. %m. %Y")
+        time = datetime.datetime.now().strftime("%H : %M")
 
-        params = {"date_time_today": date_time_today}
+        params = {"date": date, "time": time}
 
         return self.render_template("date_and_time.html", params=params)
 
